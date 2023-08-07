@@ -1,0 +1,28 @@
+describe('Тестирование https://huntingpony.com/', function () {
+    it('fДлинный автотест для https://huntingpony.com/', function () {
+         cy.visit('https://huntingpony.com/');
+       cy.wait(2000) 
+       cy.get('[data-index="4"] > .header__collections-controls > .header__collections-link').click()
+       cy.wait(2000)
+       cy.get('[data-product-id="353759308"] > .product-preview__content > .product-preview__area-title > .product-preview__title > a').click()
+       cy.wait(2000)
+       cy.get('.add-cart-counter__btn').click()
+       cy.get('[data-add-cart-counter-plus=""]').click()
+       cy.get('.header__cart > .icon').click()
+       cy.wait(1000)
+       cy.get('.cart-controls > .button').click()
+       cy.wait(1000)
+       cy.get('.decorated-title').contains('Оформление заказа')
+       cy.get('#client_surname').type('Бойцов')
+       cy.get('#client_contact_name').type('Виктор')
+       cy.get('#client_phone').type('89627000436')
+       cy.get('#client_email').type('vitya19900222@gmail.com')
+       cy.get('#shipping_address_street').type('Тестировочная')
+       cy.get('#shipping_address_house').type('1')
+       cy.get('#shipping_address_flat').type('1')
+       cy.get('.co-delivery_method-list > .co-input--captcha > .g-recaptcha > [style="width: 304px; height: 78px;"] > div > iframe').click()
+       cy.get('#create_order').click()
+       cy.wait(1000)
+
+    })
+})
